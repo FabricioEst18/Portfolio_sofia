@@ -1,0 +1,295 @@
+/* Reset de margens e paddings, define fonte padrão e modelo de caixa */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Suaviza a rolagem ao navegar pelas âncoras */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Definição de variáveis CSS para facilitar manutenção de cores */
+:root {
+    --cor-primaria: #ffacae;
+    --cor-secundaria: #ec7984;
+    --escuro: #793949;
+    --mais-escuro: #5b293a;
+    --claro: #FFFFFF;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+/* Cor de fundo e texto do body */
+body {
+    background-color: var(--escuro);
+    color: var(--claro);
+}
+
+/* Barra de navegação fixa no topo com fundo semitransparente */
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(236, 121, 132, 0.4);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+/* Estilo do menu da navbar */
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 1rem;
+}
+
+/* Links do menu */
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+/* Linha animada que aparece abaixo do link ao passar o mouse */
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--cor-primaria), var(--cor-secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Estilo da seção principal com a foto e nome */
+.cabecalho {
+    min-height: 60vh;
+    padding: 110px 30px 50px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilização da foto de perfil */
+.foto-perfil {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;;
+    border: 4px solid var(--vidro);
+    box-shadow: 0 0 20px rgba(236, 121, 132, 0.5);
+    border-radius: 50%;
+    border: 4px solid var(--vidro); 
+    animation: flutuar 5s ease-in-out infinite; /* animação de flutuação */
+}
+
+/* Título principal (nome) */
+h1 {
+    font-size: 3.5rem;
+    color: var(--cor-primaria);
+    font-weight: bold;
+    margin: 20px;
+    text-align: center;
+}
+
+/* Subtítulo com cargo */
+.cabecalho-sub-titulo {
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--claro);
+}
+
+/* Seção Sobre */
+.sobre {
+    padding: 80px 30px 50px 30px;
+}
+
+.sobre-titulo {
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Caixa com efeito de vidro */
+.sobre-caixa {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+/* Seção Projetos */
+.projetos {
+    padding: 80px 30px 50px 30px;
+}
+
+/* Grid responsivo dos cards */
+.projetos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo dos cards de projetos */
+.projetos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.9s ease;
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse sobre os cards */
+.projetos-card:hover {
+    box-shadow: 0 10px 20px rgba(236, 121, 132, 0.2);
+    transform: translateY(-10px) scale(1.03);    
+}
+
+.projetos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.projetos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.caixa-textos-projeto {
+    padding: 1.5rem;
+}
+
+.paragrafo-projetos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+.info-projetos {
+    margin-bottom: 5px;
+}
+
+/* Seção Contato */
+.contato {
+    padding: 80px 30px 20px 30px;
+}
+
+.contato-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+/* Estilização do formulário */
+.formulario-contato {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+/* Campos de input e textarea */
+.campo-form {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
+}
+
+/* Destaque ao focar nos campos */
+.campo-form:focus {
+    border-color: var(--cor-secundaria);
+    box-shadow: 0 0 10px rgba(236, 121, 132, 0.3);
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+}
+
+/* Botão de envio */
+.botao-form {
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--cor-primaria), var(--cor-secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.botao-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(236, 121, 132, 0.3);
+}
+
+/* Fundo com partículas decorativas */
+.particulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.5;
+    background: 
+        radial-gradient(circle at 10% 20%, var(--cor-primaria) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, var(--cor-secundaria) 0%, transparent 20%),
+        var(--mais-escuro);
+}
+
+/* Animação de flutuar */
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+/* Seção com ícones de redes sociais */
+.botoes-links {
+    padding: 25px 30px 50px 30px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Links com ícones */
+a {
+    text-decoration: none;
+    color: var(--claro);
+    cursor: pointer;  
+    margin: 0 20px; 
+}
